@@ -1,0 +1,14 @@
+
+<p-sidebar [(visible)]="visibleSidebar" [style]="{'width':'400px'}">
+    <p-panelMenu [model]="items" [style]="{'width':'300px'}"></p-panelMenu>
+</p-sidebar>
+
+<p-toolbar>
+    <div class="p-toolbar-group-left">
+        <p-button type="button" class="mr-2 cursor-pointer" (click)="visibleSidebar = true" icon="pi pi pi-bars"></p-button>
+
+    </div>
+    <div class="p-toolbar-group-right">
+        <p-button icon="pi pi-power-off"></p-button>
+    </div>
+</p-toolbar>

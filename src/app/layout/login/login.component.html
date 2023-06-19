@@ -1,0 +1,28 @@
+<p>login works!</p>
+<div class="card">
+    <div class="align-content-center flex flex-column  justify-content-center card-container" style="min-height: 100vh;">
+        <div class="gird border-round flex align-items-center flex justify-content-center border-1"
+            style="height: 60vh; margin-left: 30%; margin-right: 30%;">
+            <div class="flex flex-column ml-8 h-full flex justify-content-center" style="width: 190%;">
+                <div class="text-4xl mb-4 flex">
+                    SmartCity
+                </div>
+                <div class="text-2xl mb-4 flex">
+                    Sign into Your Account!
+                </div>
+                <div class="text-xl flex ">
+                    <span class="p-input-icon-left w-full">
+                        <i class="pi pi-envelope"></i>
+                        <input class="w-full" type="text" [(ngModel)]="txtUserName" pInputText />
+                    </span>
+                </div>
+                <div class="text-xl flex mt-2">
+                    <p-password class="w-full" [(ngModel)]="txtPassword"></p-password>
+                </div>
+                <div class="gird text-xl flex mt-5">
+                    <p-button label="Login" (onClick)="signin()"></p-button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

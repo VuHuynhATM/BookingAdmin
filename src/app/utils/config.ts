@@ -1,0 +1,1 @@
+export const DOMAIN = "https://smartcity1-001-site1.htempurl.com/api/v1/";
