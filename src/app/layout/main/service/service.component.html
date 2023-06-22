@@ -4,7 +4,7 @@
 </div>
 <div>
     <p-table #dt1 [value]="datasource"
-    [paginator]="true" [rows]="5" [globalFilterFields]="['fullName']" >
+    [paginator]="true" [rows]="5" [globalFilterFields]="['serviceName']" >
     <ng-template pTemplate="caption">
         <div class="flex">
             <span class="p-input-icon-left ml-auto">
@@ -16,24 +16,19 @@
     <ng-template pTemplate="header">
         <tr>
             <th>ID</th>
-            <th>Image</th>
-            <th>FullName</th>
-            <th>Email</th>
-            <th>Contact</th>
-            <th>RoleID</th>
+            <th>Service Name</th>
+            <th>Description</th>
+            <th>Employee Price</th>
+            <th>Price Of Hour</th>
         </tr>
     </ng-template>
-    <ng-template pTemplate="body" let-customer>
+    <ng-template pTemplate="body" let-service>
         <tr>
-            <td>{{customer.accountId}}</td>
-            <td>
-                <p-avatar [image]="customer.image" styleClass="mr-2" size="xlarge"
-                                shape="circle"></p-avatar>
-            </td>
-            <td>{{customer.fullName}}</td>
-            <td>{{customer.accountEmail}}</td>
-            <td>{{customer.accountPhone}}</td>
-            <td>{{customer.roleId}}</td>
+            <td>{{service.serviceId}}</td>
+            <td>{{service.serviceName}}</td>
+            <td>{{service.description}}</td>
+            <td>{{service.priceOfHour}}</td>
+            <td>{{service.employeePrice}}</td>
         </tr>
     </ng-template>
 </p-table>

@@ -19,6 +19,7 @@
     <ng-template pTemplate="header">
         <tr>
             <th>ID</th>
+            <th>Image</th>
             <th>FullName</th>
             <th>Email</th>
         </tr>
@@ -26,6 +27,10 @@
     <ng-template pTemplate="body" let-customer>
         <tr>
             <td>{{customer.employeeId}}</td>
+            <td>
+                <p-avatar [image]="customer.image" styleClass="mr-2" size="xlarge"
+                                shape="circle"></p-avatar>
+            </td>
             <td>{{customer.fullName}}</td>
             <td>{{customer.employeeEmail}}</td>
         </tr>

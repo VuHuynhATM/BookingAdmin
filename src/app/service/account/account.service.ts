@@ -9,9 +9,9 @@ import { DOMAIN } from 'src/app/utils/config';
 export class AccountService {
   headers:any;
   constructor(private httpClient: HttpClient) { 
-    if(localStorage.getItem("USER")!=undefined){
+    if(localStorage.getItem("Token")!=undefined){
       this.headers = new HttpHeaders({
-        'authorization': 'Bearer ' + JSON.parse(localStorage.getItem("USER") || "").token,
+        'Authorization': 'Bearer '+ JSON.parse(localStorage.getItem("Token") || ""),
         'accept': '*/*',
         'Access-Control-Allow-Origin': '*'
       });
@@ -40,6 +40,21 @@ export class AccountService {
   }
   getCustomerLarge() : Observable<any>{
     return this.httpClient.get(DOMAIN + `Accounts/customers`, { headers: this.headers }).pipe(
+      catchError((err:HttpErrorResponse) => {
+        return throwError(err);
+      })
+    );
+  }
+
+  AddEmployee(file: File, username: string, password:string, fullname:string, phone:string, email:string): Observable<any> {
+    var body =new FormData();
+    body.append('image',file);
+    body.append('employeeName',username);
+    body.append('password',password);
+    body.append('fullName',fullname);
+    body.append('employeePhone',phone);
+    body.append('employeeEmail',email);
+    return this.httpClient.post(DOMAIN + `Employees`, body, { headers: this.headers }).pipe(
       catchError((err:HttpErrorResponse) => {
         return throwError(err);
       })

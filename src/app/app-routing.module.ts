@@ -5,6 +5,8 @@ import { HomeComponent } from './layout/home/home.component';
 import { EmployeeComponent } from './layout/main/employee/employee.component';
 import { CustomerComponent } from './layout/main/customer/customer.component';
 import { NewEmployeeComponent } from './layout/main/employee/new-employee/new-employee.component';
+import { ServiceComponent } from './layout/main/service/service.component';
+import { BookinglistComponent } from './layout/main/booking/bookinglist/bookinglist.component';
 
 const routes: Routes = [
   {
@@ -30,6 +32,14 @@ const routes: Routes = [
   {
     path: "new-employee",
     component: NewEmployeeComponent
+  },
+  {
+    path: "service",
+    component: ServiceComponent
+  },
+  {
+    path: "bookinglist",
+    component: BookinglistComponent
   }
 ];
 

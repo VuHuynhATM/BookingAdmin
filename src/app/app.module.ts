@@ -13,6 +13,10 @@ import {PanelMenuModule} from 'primeng/panelmenu';
 import {BreadcrumbModule} from 'primeng/breadcrumb';
 import {ChartModule} from 'primeng/chart';
 import {TableModule} from 'primeng/table';
+import {AvatarModule} from 'primeng/avatar';
+import {AvatarGroupModule} from 'primeng/avatargroup';
+import {FileUploadModule} from 'primeng/fileupload';
+import {ToastModule} from 'primeng/toast';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +26,8 @@ import { HeaderComponent } from './layout/header/header.component';
 import { CustomerComponent } from './layout/main/customer/customer.component';
 import { EmployeeComponent } from './layout/main/employee/employee.component';
 import { NewEmployeeComponent } from './layout/main/employee/new-employee/new-employee.component';
+import { ServiceComponent } from './layout/main/service/service.component';
+import { BookinglistComponent } from './layout/main/booking/bookinglist/bookinglist.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +37,9 @@ import { NewEmployeeComponent } from './layout/main/employee/new-employee/new-em
     HeaderComponent,
     CustomerComponent,
     EmployeeComponent,
-    NewEmployeeComponent
+    NewEmployeeComponent,
+    ServiceComponent,
+    BookinglistComponent
   ],
   imports: [
     BrowserModule,
@@ -47,7 +55,11 @@ import { NewEmployeeComponent } from './layout/main/employee/new-employee/new-em
     BreadcrumbModule,
     ChartModule,
     TableModule,
-    HttpClientModule
+    HttpClientModule,
+    AvatarModule,
+    AvatarGroupModule,
+    FileUploadModule,
+    ToastModule
   ],
   providers: [],
   bootstrap: [AppComponent]

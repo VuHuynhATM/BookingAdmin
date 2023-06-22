@@ -40,6 +40,7 @@ export class HeaderComponent {
       {
         label: 'Service',
         icon: 'pi pi-fw pi-prime',
+        routerLink: '/service'
       },
       {
         label: 'booking',
@@ -47,7 +48,7 @@ export class HeaderComponent {
         items: [{
           label: 'Booking List',
           icon: 'pi pi-fw pi-plus',
-          routerLink: '/employee'
+          routerLink: '/bookinglist'
         },
         {
           label: 'Booking History',

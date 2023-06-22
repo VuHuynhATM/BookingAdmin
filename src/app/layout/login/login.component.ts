@@ -19,6 +19,7 @@ ngOnInit(): void {
   signin(){
     this.accountService.LoginAccount(this.txtUserName, this.txtPassword).toPromise().then((result)=>{
       if(result!=undefined){
+        localStorage.setItem("Token", JSON.stringify(result));
         this.router.navigate(['/home']);
       } (err:HttpErrorResponse) => {
         if(err.status==401)
