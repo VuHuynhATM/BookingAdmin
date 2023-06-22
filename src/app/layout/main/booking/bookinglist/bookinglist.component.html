@@ -1,37 +1,74 @@
 <app-header></app-header>
 <div>
-    <p-breadcrumb [model]="items"  [home]="home"></p-breadcrumb>
+    <p-breadcrumb [model]="items" [home]="home"></p-breadcrumb>
 </div>
 <div>
-    <p-table #dt1 [value]="datasource"
-    [paginator]="true" [rows]="5" [globalFilterFields]="['serviceName']" >
-    <ng-template pTemplate="caption">
-        <div class="flex">
-            <span class="p-input-icon-left ml-auto">
-                <i class="pi pi-search"></i>
-                <input pInputText type="text" (input)="dt1.filterGlobal($any($event.target).value, 'contains')" placeholder="Search keyword" />
-            </span>
-        </div>
-    </ng-template>
-    <ng-template pTemplate="header">
-        <tr>
-            <th>ID</th>
-            <th>Price</th>
-            <th>Quanlity</th>
-            <th>Total Price</th>
-            <th>Service</th>
-            <th>Status</th>
-        </tr>
-    </ng-template>
-    <ng-template pTemplate="body" let-booking>
-        <tr>
-            <td>{{booking.bookingId}}</td>
-            <td>{{booking.serviceName}}</td>
-            <td>{{booking.empQuantity}}</td>
-            <td>{{booking.totalAmount}}</td>
-            <td>{{booking.employeePrice}}</td>
-            <td>{{booking.statusBooking}}</td>
-        </tr>
-    </ng-template>
-</p-table>
+    <p-table #dt1 [value]="datasource" [paginator]="true" [rows]="5" [globalFilterFields]="['serviceName']">
+        <ng-template pTemplate="caption">
+
+            <div class="flex">
+                <div class="field-checkbox field">
+                    <p-checkbox [(ngModel)]="checked" [binary]="true" inputId="binary" (onChange)="changecheckbox()"></p-checkbox>
+                    <label for="binary" class="mt-2">Đã hoàn thành</label>
+                </div>
+                <span class="p-input-icon-left ml-auto">
+                    <i class="pi pi-search"></i>
+                    <input pInputText type="text" (input)="dt1.filterGlobal($any($event.target).value, 'contains')"
+                        placeholder="Search keyword" />
+                </span>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+            <tr>
+                <th>ID</th>
+                <th>Quanlity</th>
+                <th>Total Price</th>
+                <th>Date</th>
+                <th>Status</th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-booking>
+            <tr>
+                <td>{{booking.bookingId}}</td>
+                <td>{{booking.empQuantity}}</td>
+                <td>{{booking.totalAmount}}</td>
+                <td>{{booking.dateOfBooking}}</td>
+                <td>
+                    <div class="field grid">
+                        <label for="firstname3" class="col-fixed" style="width:200px">
+                            <span *ngIf="booking.statusBooking==1">
+                                booking
+                            </span>
+                            <span *ngIf="booking.statusBooking==2">
+                                working
+                            </span>
+                            <span *ngIf="booking.statusBooking==3">
+                                finish
+                            </span>
+                        </label>
+                        <div class="col">
+                            <p-button icon="pi pi-list"
+                                (click)="op.show($event, getlistemp(booking.bookingId))"></p-button>
+
+                        </div>
+                    </div>
+
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
 </div>
+
+<p-overlayPanel #op [showCloseIcon]="true" [style]="{width: '450px'}">
+    <ng-template pTemplate>
+        <p-table [value]="emplist">
+            <ng-template pTemplate="body" let-rowData let-employee>
+                <tr class="text-sm" [pSelectableRow]="rowData">
+                    <td>{{employee.id}}</td>
+                    <td>{{employee.bookingId}}</td>
+                    <td>{{employee.empId}}</td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </ng-template>
+</p-overlayPanel>

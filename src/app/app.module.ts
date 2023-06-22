@@ -17,6 +17,9 @@ import {AvatarModule} from 'primeng/avatar';
 import {AvatarGroupModule} from 'primeng/avatargroup';
 import {FileUploadModule} from 'primeng/fileupload';
 import {ToastModule} from 'primeng/toast';
+import {OverlayPanelModule} from 'primeng/overlaypanel';
+import {CheckboxModule} from 'primeng/checkbox';
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -59,7 +62,9 @@ import { BookinglistComponent } from './layout/main/booking/bookinglist/bookingl
     AvatarModule,
     AvatarGroupModule,
     FileUploadModule,
-    ToastModule
+    ToastModule,
+    OverlayPanelModule,
+    CheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

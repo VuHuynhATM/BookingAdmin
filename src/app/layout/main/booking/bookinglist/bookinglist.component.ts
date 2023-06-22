@@ -16,13 +16,16 @@ export class BookinglistComponent {
   home!: MenuItem;
 
   datasource!: any[];
+
+  emplist!:any[];
+  checked!:boolean;
   constructor(private bookingService: BookingService,
     private primengConfig: PrimeNGConfig,
     private router: Router) {
 
   }
   ngOnInit() {
-
+    this.checked=false;
     this.items = [
       { label: 'Booking' },
       { label: 'List' },
@@ -38,5 +41,26 @@ export class BookinglistComponent {
         this.router.navigate(['/login']);
       }
     });
+  }
+  getlistemp(id:number){
+    this.datasource.forEach(value => {
+      if(value.bookingId==id){
+        this.emplist=value.tblBookingEmps
+      }
+    });
+  }
+  changecheckbox(){
+    if(this.checked){
+      this.datasource=this.datasource.filter(value=>value.statusBooking==3);
+    }else{
+      this.bookingService.getbookingLarge().toPromise().then((result)=>{
+        if(result!=undefined){
+          this.datasource=result.data;
+        } (err:HttpErrorResponse) => {
+          if(err.status==401)
+          this.router.navigate(['/login']);
+        }
+      });
+    }
   }
 }

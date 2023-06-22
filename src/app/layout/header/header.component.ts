@@ -45,17 +45,7 @@ export class HeaderComponent {
       {
         label: 'booking',
         icon: 'pi pi-fw pi-cart-plus',
-        items: [{
-          label: 'Booking List',
-          icon: 'pi pi-fw pi-plus',
-          routerLink: '/bookinglist'
-        },
-        {
-          label: 'Booking History',
-          icon: 'pi pi-fw pi-prime',
-          routerLink: '/customer'
-        },
-        ]
+        routerLink: '/bookinglist'
       }
     ];
   }
