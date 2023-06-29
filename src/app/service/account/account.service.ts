@@ -60,4 +60,12 @@ export class AccountService {
       })
     );
   }
+
+  getEmployeeStatus(id:any) : Observable<any>{
+    return this.httpClient.get(DOMAIN + `Employees/status/`+id, { headers: this.headers }).pipe(
+      catchError((err:HttpErrorResponse) => {
+        return throwError(err);
+      })
+    );
+  }
 }

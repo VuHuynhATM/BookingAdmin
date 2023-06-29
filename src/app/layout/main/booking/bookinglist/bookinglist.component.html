@@ -1,4 +1,5 @@
 <app-header></app-header>
+<p-toast></p-toast>
 <div>
     <p-breadcrumb [model]="items" [home]="home"></p-breadcrumb>
 </div>
@@ -61,12 +62,16 @@
 
 <p-overlayPanel #op [showCloseIcon]="true" [style]="{width: '450px'}">
     <ng-template pTemplate>
-        <p-table [value]="emplist">
+        <p-table [value]="emplist" [paginator]="true" [rows]="5" responsiveLayout="scroll">
             <ng-template pTemplate="body" let-rowData let-employee>
                 <tr class="text-sm" [pSelectableRow]="rowData">
                     <td>{{employee.id}}</td>
-                    <td>{{employee.bookingId}}</td>
-                    <td>{{employee.empId}}</td>
+                    <td><p-avatar [image]="employee.image" styleClass="mr-2" size="xlarge"
+                        shape="circle"></p-avatar></td>
+                    <td>{{employee.fullName}}</td>
+                    <td>
+                        <button pButton type="button" label="Add Employee"(click)="addEmployee(employee.id)" class="p-button-sm"></button>
+                    </td>
                 </tr>
             </ng-template>
         </p-table>

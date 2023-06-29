@@ -24,4 +24,16 @@ export class BookingService {
       })
     );
   }
+
+  CreateTask(id:any, empid:number) : Observable<any>{
+    const body={
+      bookingId:id,
+      empID:[empid]
+    }
+    return this.httpClient.post(DOMAIN + `Bookings/create-task`,body, { headers: this.headers }).pipe(
+      catchError((err:HttpErrorResponse) => {
+        return throwError(err);
+      })
+    );
+  }
 }
