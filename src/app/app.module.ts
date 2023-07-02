@@ -31,6 +31,7 @@ import { EmployeeComponent } from './layout/main/employee/employee.component';
 import { NewEmployeeComponent } from './layout/main/employee/new-employee/new-employee.component';
 import { ServiceComponent } from './layout/main/service/service.component';
 import { BookinglistComponent } from './layout/main/booking/bookinglist/bookinglist.component';
+import { AddserviceComponent } from './layout/main/service/addservice/addservice.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { BookinglistComponent } from './layout/main/booking/bookinglist/bookingl
     EmployeeComponent,
     NewEmployeeComponent,
     ServiceComponent,
-    BookinglistComponent
+    BookinglistComponent,
+    AddserviceComponent
   ],
   imports: [
     BrowserModule,

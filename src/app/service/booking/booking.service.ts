@@ -36,4 +36,12 @@ export class BookingService {
       })
     );
   }
+
+  DoTask(id:any) : Observable<any>{
+    return this.httpClient.post(DOMAIN + `Bookings/done-task/`+id,null, { headers: this.headers }).pipe(
+      catchError((err:HttpErrorResponse) => {
+        return throwError(err);
+      })
+    );
+  }
 }

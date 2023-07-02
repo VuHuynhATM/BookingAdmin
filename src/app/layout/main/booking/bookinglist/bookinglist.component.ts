@@ -89,4 +89,20 @@ export class BookinglistComponent {
     });
 
   }
+  DoTask(id: any) {
+    this.bookingService.DoTask(id).toPromise().then((result) => {
+      if (result.succeeded) {
+        this.datasource = result.data;
+        this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Do Task Successfull' });
+      }
+    }).catch((err: HttpErrorResponse) => {
+      console.log(err);
+      if (err.status == 401)
+        this.router.navigate(['/login']);
+      if (err.status == 400) {
+        this.messageService.add({ severity: 'error', summary: 'Fail', detail: err.message});
+      }
+    });
+
+  }
 }

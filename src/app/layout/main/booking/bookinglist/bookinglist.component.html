@@ -48,9 +48,14 @@
                             </span>
                         </label>
                         <div class="col">
-                            <p-button icon="pi pi-list"
+                            <span *ngIf="booking.statusBooking==1">
+                                <p-button icon="pi pi-list" label="Choose Employee"
                                 (click)="op.show($event, getlistemp(booking.bookingId))"></p-button>
-
+                            </span>
+                            <span *ngIf="booking.statusBooking==2">
+                                <p-button label="Submit"
+                                (click)="DoTask(booking.bookingId)"></p-button>
+                            </span>
                         </div>
                     </div>
 

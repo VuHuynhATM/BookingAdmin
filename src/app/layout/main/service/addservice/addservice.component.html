@@ -1,0 +1,63 @@
+<app-header></app-header>
+<div>
+    <p-breadcrumb [model]="items"  [home]="home"></p-breadcrumb>
+</div>
+<p-toast></p-toast>
+<div class="flex flex-column m-8 h-full flex justify-content-center" style="width: 190%;">
+    <div class="text-xl flex ">
+        <div class="field grid">
+            <label for="firstname3" class="col-fixed" style="width:200px">Employee Name</label>
+            <div class="col">
+                <input class="w-full" type="text" [(ngModel)]="txtEmployeeName" pInputText />
+            </div>
+        </div>
+    </div>
+    <div class="text-xl flex mt-2">
+        <div class="field grid">
+            <label for="firstname3" class="col-fixed" style="width:200px">Password</label>
+            <div class="col">
+                <input class="w-full" type="text" [(ngModel)]="txtPassword" pInputText />
+            </div>
+        </div>
+    </div>
+    <div class="text-xl flex mt-2">
+        <div class="field grid">
+            <label for="firstname3" class="col-fixed" style="width:200px">Confom Password</label>
+            <div class="col">
+                <input class="w-full" type="text"  [(ngModel)]="txtConfomPassword" pInputText />
+            </div>
+        </div>
+    </div>
+    <div class="text-xl flex mt-2">
+        <div class="field grid">
+            <label for="firstname3" class="col-fixed" style="width:200px">FullName</label>
+            <div class="col">
+                <input class="w-full" type="text"  [(ngModel)]="txtFullName" pInputText />
+            </div>
+        </div>
+    </div>
+    <div class="text-xl flex mt-2">
+        <div class="field grid">
+            <label for="firstname3" class="col-fixed" style="width:200px">Employee Phone</label>
+            <div class="col">
+                <input class="w-full" type="text"  [(ngModel)]="txtPhone" pInputText />
+            </div>
+        </div>
+    </div>
+    <div class="text-xl flex mt-2">
+        <div class="field grid">
+            <label for="firstname3" class="col-fixed" style="width:200px">Employee Email</label>
+            <div class="col">
+                <input class="w-full" type="text"  [(ngModel)]="txtEmail" pInputText />
+            </div>
+        </div>
+    </div>
+    <div class="flex mt-2">
+        <div class="field grid" >
+            <p-fileUpload [customUpload]="true" (uploadHandler)="AddEmployee($event)" style="width: 660px;"
+                                        [multiple]="false" accept="image/*" [maxFileSize]="1000000"
+                                        [showCancelButton]="false" chooseLabel="Choose Avartar" uploadLabel="Save">
+                                    </p-fileUpload>
+        </div>
+    </div>
+</div>
