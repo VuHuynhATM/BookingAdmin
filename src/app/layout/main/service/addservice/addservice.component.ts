@@ -38,35 +38,4 @@ export class AddserviceComponent {
     this.home = { icon: 'pi pi-home', routerLink: '/home' };
 
   }
-  AddEmployee(event: any){
-    if(this.txtPassword==undefined){
-      this.messageService.add({severity:'warn', summary: 'Warn', detail: 'password'});
-      return;
-    }
-    if(this.txtConfomPassword==undefined){
-      this.messageService.add({severity:'warn', summary: 'Warn', detail: 'password'});
-      return;
-    }
-    if(this.txtConfomPassword != this.txtPassword){
-      this.messageService.add({severity:'warn', summary: 'Warn', detail: 'password'});
-      return;
-    }
-    for (let file of event.files) {
-      this.uploadedFile = file;
-    }
-    this.employeeService.AddEmployee(this.uploadedFile, this.txtEmployeeName,this.txtPassword,this.txtFullName,this.txtPhone,this.txtEmail).toPromise().then((result) => {
-      if (result.succeeded) {
-        this.router.navigate(['/employee']);
-      } else {
-        this.messageService.add({ severity: 'warn', summary: 'Thông báo', detail: result.message });
-      }
-    }).catch((err: HttpErrorResponse) => {
-      console.log(err);
-      if (err.status == 401)
-        this.router.navigate(['/login']);
-      if (err.status == 400) {
-        this.messageService.add({ severity: 'error', summary: 'Fail', detail: err.message});
-      }
-    });
-  }
 }
