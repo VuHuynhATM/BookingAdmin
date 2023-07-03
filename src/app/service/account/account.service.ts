@@ -46,7 +46,7 @@ export class AccountService {
     );
   }
 
-  AddEmployee(file: File, username: string, password:string, fullname:string, phone:string, email:string): Observable<any> {
+  AddEmployee(file: string, username: string, password:string, fullname:string, phone:string, email:string): Observable<any> {
     var body =new FormData();
     body.append('image',file);
     body.append('employeeName',username);

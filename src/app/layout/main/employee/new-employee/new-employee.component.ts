@@ -21,6 +21,7 @@ export class NewEmployeeComponent {
   txtFullName!:string;
   txtPhone!:string;
   txtEmail!:string;
+  txtImage!:string;
   uploadedFile: any;
   constructor(private employeeService: AccountService,
     private primengConfig: PrimeNGConfig,
@@ -52,10 +53,10 @@ export class NewEmployeeComponent {
       this.messageService.add({severity:'warn', summary: 'Warn', detail: 'password'});
       return;
     }
-    for (let file of event.files) {
-      this.uploadedFile = file;
-    }
-    this.employeeService.AddEmployee(this.uploadedFile, this.txtEmployeeName,this.txtPassword,this.txtFullName,this.txtPhone,this.txtEmail).toPromise().then((result) => {
+    // for (let file of event.files) {
+    //   this.uploadedFile = file;
+    // }
+    this.employeeService.AddEmployee(this.txtImage, this.txtEmployeeName,this.txtPassword,this.txtFullName,this.txtPhone,this.txtEmail).toPromise().then((result) => {
       if (result.succeeded) {
         this.router.navigate(['/employee']);
       } else {
