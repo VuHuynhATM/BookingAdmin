@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
 import { MenuItem, PrimeNGConfig } from 'primeng/api';
 
 @Component({
@@ -10,7 +11,8 @@ export class HeaderComponent {
   visibleSidebar: any = false;
   items!: MenuItem[];
 
-  constructor(private primengConfig: PrimeNGConfig) {
+  constructor(private primengConfig: PrimeNGConfig,
+    private router: Router) {
     this.primengConfig.ripple = true;
   }
 
@@ -48,5 +50,9 @@ export class HeaderComponent {
         routerLink: '/bookinglist'
       }
     ];
+  }
+  logout(){
+    localStorage.clear();
+    this.router.navigate(['/login']);
   }
 }
