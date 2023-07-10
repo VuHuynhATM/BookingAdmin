@@ -44,4 +44,12 @@ export class BookingService {
       })
     );
   }
+
+  GetEmployee(id:any) : Observable<any>{
+    return this.httpClient.post(DOMAIN + `Bookings/choose-emp/`+id,null, { headers: this.headers }).pipe(
+      catchError((err:HttpErrorResponse) => {
+        return throwError(err);
+      })
+    );
+  }
 }

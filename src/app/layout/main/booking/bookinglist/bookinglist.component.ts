@@ -42,20 +42,27 @@ export class BookinglistComponent {
     this.bookingService.getbookingLarge().toPromise().then((result) => {
       if (result.succeeded) {
         this.datasource = result.data;
-      } (err: HttpErrorResponse) => {
+      }}).catch((err: HttpErrorResponse) => {
+        console.log(err);
         if (err.status == 401)
           this.router.navigate(['/login']);
-      }
-    });
+        if (err.status == 400) {
+          this.messageService.add({ severity: 'error', summary: 'Fail', detail: err.message});
+        }
+      });
   }
   getlistemp(id: number) {
     this.bookingID = id;
-    this.accountService.getEmployeeStatus(1).toPromise().then((result) => {
+    this.bookingService.GetEmployee(id).toPromise().then((result) => {
       if (result.succeeded) {
         this.emplist = result.data;
-      } (err: HttpErrorResponse) => {
-        if (err.status == 401)
-          this.router.navigate(['/login']);
+      }
+    }).catch((err: HttpErrorResponse) => {
+      console.log(err);
+      if (err.status == 401)
+        this.router.navigate(['/login']);
+      if (err.status == 400) {
+        this.messageService.add({ severity: 'error', summary: 'Fail', detail: err.message});
       }
     });
   }
