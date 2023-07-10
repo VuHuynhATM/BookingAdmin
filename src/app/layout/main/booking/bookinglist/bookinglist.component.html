@@ -70,12 +70,12 @@
         <p-table [value]="emplist" [paginator]="true" [rows]="5" responsiveLayout="scroll">
             <ng-template pTemplate="body" let-rowData let-employee>
                 <tr class="text-sm" [pSelectableRow]="rowData">
-                    <td>{{employee.id}}</td>
+                    <td>{{employee.employeeId}}</td>
                     <td><p-avatar [image]="employee.image" styleClass="mr-2" size="xlarge"
                         shape="circle"></p-avatar></td>
                     <td>{{employee.fullName}}</td>
                     <td>
-                        <button pButton type="button" label="Add Employee"(click)="addEmployee(employee.id)" class="p-button-sm"></button>
+                        <button pButton type="button" label="Add Employee"(click)="addEmployee(employee.employeeId)" class="p-button-sm"></button>
                     </td>
                 </tr>
             </ng-template>

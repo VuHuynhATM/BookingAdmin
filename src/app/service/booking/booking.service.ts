@@ -26,9 +26,11 @@ export class BookingService {
   }
 
   CreateTask(id:any, empid:number) : Observable<any>{
+    let ids: Array<number>;
+    ids=[empid];
     const body={
       bookingId:id,
-      empID:[empid]
+      empID:ids
     }
     return this.httpClient.post(DOMAIN + `Bookings/create-task`,body, { headers: this.headers }).pipe(
       catchError((err:HttpErrorResponse) => {
